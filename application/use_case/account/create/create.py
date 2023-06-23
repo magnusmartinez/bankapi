@@ -4,6 +4,6 @@ from infrastructure.serializers.account import SerializerAccountCreate
 
 
 class AccountCreate(CreateAPIView):  
-    """Crear una cuenta en el banco"""
-
+    """Crea una cuenta en el banco"""
+    
     serializer_class = SerializerAccountCreate

@@ -43,6 +43,7 @@ urlpatterns = [
     path('api/v1/', include('infrastructure.url.account')),
     path('api/v1/', include('infrastructure.url.transfer')),
     path('api/v1/', include('infrastructure.url.transaction')),
+    path('api/v1/', include('infrastructure.url.sucursal')),
 ]
 
 

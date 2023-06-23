@@ -10,9 +10,12 @@ class SerializerUserCreate(serializers.ModelSerializer):
     Serializer del modelo User para crear un usuario
     """
 
+    password = serializers.CharField(write_only=True)
+
     class Meta:
         model = User
         fields = "__all__"
+
 
     def create(self, validated_data):
     
@@ -29,16 +32,9 @@ class SerializerUserCreate(serializers.ModelSerializer):
         instance.user_permissions.set(user_permissions)
 
         instance.set_password(validated_data['password'])
-
-
         instance.save()
-
+      
         return instance
-    
-    def to_representation(self, instance):
-
-        return model_to_dict(instance, exclude=["password"]) 
-
 
 class SerializerUserUpdate(serializers.ModelSerializer):
     """
